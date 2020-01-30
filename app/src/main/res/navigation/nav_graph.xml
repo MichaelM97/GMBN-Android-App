@@ -6,5 +6,21 @@
     <fragment
         android:id="@+id/videoListFragment"
         android:name="com.michaelmccormick.gmbn.view.fragment.VideoListFragment"
-        android:label="VideoListFragment" />
+        android:label="VideoListFragment" >
+        <action
+            android:id="@+id/action_videoListFragment_to_videoDetailFragment"
+            app:destination="@id/videoDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/videoDetailFragment"
+        android:name="com.michaelmccormick.gmbn.view.fragment.VideoDetailFragment"
+        android:label="VideoDetailFragment" >
+        <argument
+            android:name="videoID"
+            app:argType="string" />
+    </fragment>
 </navigation>
