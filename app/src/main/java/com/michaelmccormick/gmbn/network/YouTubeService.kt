@@ -1,6 +1,5 @@
 package com.michaelmccormick.gmbn.network
 
-import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport
 import com.google.api.client.json.jackson2.JacksonFactory
 import com.google.api.services.youtube.YouTube
 import com.michaelmccormick.gmbn.model.Video
@@ -10,14 +9,21 @@ import com.michaelmccormick.gmbn.model.mappers.PlaylistItemListResponseMapper
  * Interfaces with the YouTube API.
  */
 class YouTubeService {
-    private val service: YouTube
+    private lateinit var service: YouTube
     private val jsonFactory = JacksonFactory.getDefaultInstance()
 
-    init {
-        val httpTransport = GoogleNetHttpTransport.newTrustedTransport()
-        service = YouTube.Builder(httpTransport, jsonFactory, null)
-            .setApplicationName(APPLICATION_NAME)
-            .build()
+    /**
+     * This needs to be called BEFORE interacting with the service.
+     * Required because when Koin is creating this class the JKS keystore is not available,
+     * so GoogleNetHttpTransport.newTrustedTransport() throws an exception.
+     */
+    fun initialise() {
+        if (!this::service.isInitialized) {
+            val httpTransport = com.google.api.client.http.javanet.NetHttpTransport()
+            service = YouTube.Builder(httpTransport, jsonFactory, null)
+                .setApplicationName(APPLICATION_NAME)
+                .build()
+        }
     }
 
     /**

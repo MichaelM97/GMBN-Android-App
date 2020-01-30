@@ -5,6 +5,6 @@
 
     <fragment
         android:id="@+id/videoListFragment"
-        android:name="com.michaelmccormick.gmbn.view.VideoListFragment"
+        android:name="com.michaelmccormick.gmbn.view.fragment.VideoListFragment"
         android:label="VideoListFragment" />
 </navigation>

@@ -12,6 +12,7 @@ class YouTubeRepository(private val service: YouTubeService) {
      * Returns a list videos from memory if it exists, otherwise fetches from the API.
      */
     fun getVideos(): List<Video> {
+        service.initialise()
         if (videos.isEmpty()) {
             videos = service.getUploads()
         }
