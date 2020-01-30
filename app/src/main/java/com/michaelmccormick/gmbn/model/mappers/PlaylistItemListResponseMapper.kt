@@ -13,7 +13,7 @@ class PlaylistItemListResponseMapper {
     fun mapToVideoList(response: PlaylistItemListResponse): List<Video> {
         val videos: MutableList<Video> = mutableListOf()
         response.items.forEach {
-            videos.add(Video(it.id, it.snippet.title, it.snippet.thumbnails.default.url))
+            videos.add(Video(it.id, it.snippet.title, it.snippet.thumbnails.high.url))
         }
         return videos
     }

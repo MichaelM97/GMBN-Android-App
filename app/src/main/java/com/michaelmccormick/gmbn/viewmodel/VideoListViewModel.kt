@@ -14,7 +14,6 @@ class VideoListViewModel(private val repository: YouTubeRepository) : ViewModel(
     init {
         GlobalScope.launch {
             videos.postValue(repository.getVideos())
-            // TODO: Stop loading spinner
         }
     }
 }
