@@ -1,16 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/thumbnail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/video_thumbnail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/thumbnail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/video_thumbnail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/videoTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/video_title_text_side_padding"
+            android:paddingLeft="@dimen/video_title_text_side_padding"
+            android:paddingTop="@dimen/video_title_text_top_padding"
+            android:paddingEnd="@dimen/video_title_text_side_padding"
+            android:paddingRight="@dimen/video_title_text_side_padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/thumbnail"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="My new video" />
+
+        <TextView
+            android:id="@+id/publishedAt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/video_title_text_side_padding"
+            android:paddingLeft="@dimen/video_title_text_side_padding"
+            android:paddingTop="@dimen/video_title_text_top_padding"
+            android:paddingEnd="@dimen/video_title_text_side_padding"
+            android:paddingRight="@dimen/video_title_text_side_padding"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/thumbnail"
+            tools:text="Published at: 30/01/2020 12:20" />
+
+        <TextView
+            android:id="@+id/descriptionHeader"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/video_title_text_side_padding"
+            android:paddingLeft="@dimen/video_title_text_side_padding"
+            android:paddingTop="@dimen/video_title_text_top_padding"
+            android:paddingEnd="@dimen/video_title_text_side_padding"
+            android:paddingRight="@dimen/video_title_text_side_padding"
+            android:text="@string/video_description_header"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/publishedAt" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/video_title_text_side_padding"
+            android:paddingLeft="@dimen/video_title_text_side_padding"
+            android:paddingTop="@dimen/video_title_text_top_padding"
+            android:paddingEnd="@dimen/video_title_text_side_padding"
+            android:paddingRight="@dimen/video_title_text_side_padding"
+            android:paddingBottom="@dimen/video_title_text_top_padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionHeader"
+            tools:text="My video is about blah blah blah" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

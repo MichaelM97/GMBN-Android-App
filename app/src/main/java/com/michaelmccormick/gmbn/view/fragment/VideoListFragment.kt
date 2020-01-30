@@ -13,7 +13,9 @@ import com.michaelmccormick.gmbn.viewmodel.VideoListViewModel
 import kotlinx.android.synthetic.main.fragment_video_list.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
+/**
+ * Fragment which lists all of the videos from the GMBN YouTube channel.
+ */
 class VideoListFragment : Fragment() {
     private val viewModel: VideoListViewModel by viewModel()
     private val adapter = VideoListAdapter()

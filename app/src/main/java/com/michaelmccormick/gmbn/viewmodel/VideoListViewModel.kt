@@ -7,6 +7,9 @@ import com.michaelmccormick.gmbn.network.YouTubeRepository
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
+/**
+ * The ViewModel for the VideoListFragment.
+ */
 class VideoListViewModel(private val repository: YouTubeRepository) : ViewModel() {
 
     var videos: MutableLiveData<List<Video>> = MutableLiveData(emptyList())

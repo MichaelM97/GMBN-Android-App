@@ -5,6 +5,8 @@ package com.michaelmccormick.gmbn.model
  */
 data class Video(
     val id: String,
+    val thumbnailUrl: String,
     val title: String,
-    val thumbnailUrl: String
+    val description: String,
+    val publishedAt: String
 )
