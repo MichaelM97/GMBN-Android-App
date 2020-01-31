@@ -16,7 +16,7 @@ class PlaylistItemListResponseMapper {
         response.items.forEach {
             videos.add(
                 Video(
-                    it.id,
+                    it.contentDetails.videoId,
                     it.snippet.thumbnails.high.url,
                     it.snippet.title,
                     it.snippet.description,

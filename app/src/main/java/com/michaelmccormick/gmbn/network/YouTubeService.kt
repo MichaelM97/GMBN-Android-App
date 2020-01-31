@@ -35,7 +35,7 @@ class YouTubeService {
 
         do {
             // Fetch the next 50 videos
-            val request = service.playlistItems().list(SNIPPET)
+            val request = service.playlistItems().list(SNIPPET_AND_CONTENT_DETAILS)
             val response = request.setKey(API_KEY)
                 .setPlaylistId(UPLOADS_PLAYLIST_ID)
                 .setMaxResults(MAX_RESULTS)
@@ -52,11 +52,23 @@ class YouTubeService {
         return uploads
     }
 
+    /**
+     * Fetches the duration of the video associated with the passed [videoId].
+     */
+    fun getVideoDuration(videoId: String): String {
+        val request = service.videos().list(CONTENT_DETAILS)
+        val response = request.setKey(API_KEY)
+            .setId(videoId)
+            .execute()
+        return response.items[0].contentDetails.duration
+    }
+
     companion object {
         private const val API_KEY = "AIzaSyB8jKnTv1i-VklvGmmPrd1_py58DeA46hs"
         private const val APPLICATION_NAME = "GMBN"
         private const val UPLOADS_PLAYLIST_ID = "UU_A--fhX5gea0i4UtpD99Gg"
-        private const val SNIPPET = "snippet"
+        private const val SNIPPET_AND_CONTENT_DETAILS = "snippet, contentDetails"
+        private const val CONTENT_DETAILS = "contentDetails"
         private const val MAX_RESULTS = 50L
     }
 }

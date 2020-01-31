@@ -45,6 +45,27 @@
             tools:text="Published at: 30/01/2020 12:20" />
 
         <TextView
+            android:id="@+id/duration"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/video_title_text_side_padding"
+            android:paddingLeft="@dimen/video_title_text_side_padding"
+            android:paddingTop="@dimen/video_title_text_top_padding"
+            android:paddingEnd="@dimen/video_title_text_side_padding"
+            android:paddingRight="@dimen/video_title_text_side_padding"
+            android:text="@string/video_duration_loading"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/publishedAt" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleSmallTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/duration"
+            app:layout_constraintTop_toBottomOf="@+id/publishedAt" />
+
+        <TextView
             android:id="@+id/descriptionHeader"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -57,7 +78,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/publishedAt" />
+            app:layout_constraintTop_toBottomOf="@+id/duration" />
 
         <TextView
             android:id="@+id/description"

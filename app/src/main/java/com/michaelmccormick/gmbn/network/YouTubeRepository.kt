@@ -18,4 +18,13 @@ class YouTubeRepository(private val service: YouTubeService) {
         }
         return videos
     }
+
+    /**
+     * Returns the duration of the video associated with the passed [videoId].
+     * Does not cache the result in memory.
+     */
+    fun getVideoDuration(videoId: String): String {
+        service.initialise()
+        return service.getVideoDuration(videoId)
+    }
 }

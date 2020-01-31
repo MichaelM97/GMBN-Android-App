@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.michaelmccormick.gmbn.R
 import com.michaelmccormick.gmbn.adapter.VideoListAdapter
 import com.michaelmccormick.gmbn.viewmodel.VideoListViewModel
-import kotlinx.android.synthetic.main.fragment_video_list.*
+import kotlinx.android.synthetic.main.fragment_video_list.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
@@ -32,10 +32,10 @@ class VideoListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val layoutManager = LinearLayoutManager(requireContext())
         layoutManager.orientation = LinearLayoutManager.VERTICAL
-        videoList.layoutManager = layoutManager
-        videoList.adapter = adapter
+        view.videoList.layoutManager = layoutManager
+        view.videoList.adapter = adapter
         viewModel.videos.observe(this, Observer {
-            if (it.isNotEmpty()) progressBar.visibility = View.GONE
+            if (it.isNotEmpty()) view.progressBar.visibility = View.GONE
             adapter.submitList(it)
         })
     }
