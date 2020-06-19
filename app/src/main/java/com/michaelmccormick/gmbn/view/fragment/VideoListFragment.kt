@@ -34,7 +34,7 @@ class VideoListFragment : Fragment() {
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         view.videoList.layoutManager = layoutManager
         view.videoList.adapter = adapter
-        viewModel.videos.observe(this, Observer {
+        viewModel.videos.observe(viewLifecycleOwner, Observer {
             if (it.isNotEmpty()) view.progressBar.visibility = View.GONE
             adapter.submitList(it)
         })

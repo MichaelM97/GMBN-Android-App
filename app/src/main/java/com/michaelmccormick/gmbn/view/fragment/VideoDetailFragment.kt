@@ -31,7 +31,7 @@ class VideoDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Observe duration live data
-        viewModel.duration.observe(this, Observer {
+        viewModel.duration.observe(viewLifecycleOwner, Observer {
             if (it.isNotEmpty()) {
                 view.progressBar.visibility = View.GONE
                 view.duration.text = getString(R.string.video_duration, it.removeRange(0, 2))
